@@ -64,7 +64,7 @@ namespace ATV5
             Console.WriteLine("---TENTATIVA 3(Usuário Inexistente)---");
             try
             {
-                sistema.FazerLogin("Edvaldo","Edv@250");
+                sistema.FazerLogin("Edvaldo","Edv@25");
             }
             catch (Exception ex)
             {
