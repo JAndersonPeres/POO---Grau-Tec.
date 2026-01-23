@@ -1,0 +1,3 @@
+23/01/2026 09:34:41-Sistema Inicializado.
+23/01/2026 09:34:41-Usuário 'admin' logou.
+23/01/2026 09:34:41-Erro de conexão simulado.
