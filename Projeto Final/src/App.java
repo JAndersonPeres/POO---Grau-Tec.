@@ -26,6 +26,7 @@ public class App {
             System.out.println("3 - Empréstimos");
             System.out.println("4 - Relatórios");
             System.out.println("0 - Sair");
+            System.out.print("Escoha: ");
             op = Integer.parseInt(sc.nextLine());
             try {
                 switch (op){

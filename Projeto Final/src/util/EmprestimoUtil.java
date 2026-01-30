@@ -15,6 +15,7 @@ public class EmprestimoUtil {
         if(p[5] != null && !p[5].isBlank()){
             e.registrarDevolucao(DataUtil.parse(p[5]), Double.parseDouble(p[7]));
         }
+        
         return e;
     }
 

@@ -1,1 +1,12 @@
-Harry Potter e a Pedra Filosofal;J. K. Rowling;978-8532511010;Rocco;2000;false;9
+Harry Potter e a Pedra Filosofal;J. K. Rowling;978-8532511010;Rocco;2000;false;2
+Harry Potter e a Cƒmara Secreta;J. K. Rowling;978-8532530790;Rocco;2017;false;2
+Harry Potter e o Prisioneiro de Azkaban;J. K. Rowling;978-8532530806;Rocco;1999;false;1
+Harry Potter e o C lice de Fogo;J. K. Rowling;978-8532530813;Rocco;2017;false;1
+Harry Potter e a Ordem da Fˆnix;J. K. Rowling;978-8532516220;Rocco;2003;true;1
+Harry Potter e o Enigma do Pr¡ncipe;J. K. Rowling;978-8532519474;Rocco;2005;true;0
+Harry Potter e as Rel¡quias de Morte;J. K. Rowling;978-8532522610;Rocco;2007;true;0
+Percy Jackson e o LadrÆo de Raios;Rick Riordan;978-8580575392;Intr¡nseca;2014;false;1
+Percy Jackson e o Mar de Monstros;Rick Riordan;978-8580575408;Intr¡nseca;2014;true;0
+Percy Jackson e a Maldi‡Æo do TitÆ;Rick Riordan;978-8580575415;Intr¡nseca;2014;true;0
+Percy Jackson e a Batalha do Labirinto;Rick Riordan;978-8580575422;Intr¡nseca;2014;true;0
+Percy Jackson e o éltimo Olimpiano;Rick Riordan;978-8580575439;Intr¡nseca;2014;true;0

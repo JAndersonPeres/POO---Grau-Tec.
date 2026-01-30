@@ -31,6 +31,8 @@ public class ILivro{
                 case 6 -> buscarPorIsbn(sc, service);
                 case 7 -> buscarPorEditora(sc, service);
                 case 8 -> buscarPorAno(sc, service);
+                case 0 -> { continue; }
+                default -> System.out.println("Erro: Opção Inválida.");
             }
         } while (op != 0);
     }

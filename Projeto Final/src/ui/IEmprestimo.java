@@ -31,6 +31,8 @@ public class IEmprestimo {
                 case 5 -> buscarPorID(sc, service);
                 case 6 -> consultarPorCliente(sc, service);
                 case 7 -> consultarMulta(sc, service);
+                case 0 -> { continue; }
+                default -> System.out.println("Erro: Opção Inválida.");
             }
         } while (op != 0);
     }
@@ -51,6 +53,10 @@ public class IEmprestimo {
             System.out.println("Erro: Limite de Empréstimo Excessedido.");
         } catch (LivroIndisponivelException e) {
             System.out.println("Erro: Livro Indisponível para Empréstimo.");
+        } catch (LivroNaoEncontradoException e){
+            System.out.println("Erro: Livro Não Encontrado para Empréstimo.");
+        } catch (ClienteNaoEncontradoException e){
+            System.out.println("Erro: Cliente não Encontrado.");
         }
     }
 

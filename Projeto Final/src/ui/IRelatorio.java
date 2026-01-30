@@ -4,12 +4,14 @@ import model.*;
 import service.RelatorioService;
 import java.util.*;
 
+import exceptions.*;
+
 public class IRelatorio {
 
     public static void menu(Scanner sc, RelatorioService service){
         int op;
         do {
-            System.out.println("=== Menu Relatórios ===");
+            System.out.println("\n=== Menu Relatórios ===");
             System.out.println("1 - Livros mais Emprestados");
             System.out.println("2 - Clientes mais Ativos");
             System.out.println("3 - Empréstimos em Atraso");
@@ -21,6 +23,8 @@ public class IRelatorio {
                 case 2 -> clientesAtivos(service);
                 case 3 -> emprestimosAtrasados(service);
                 case 4 -> estatisticasGerais(service);
+                case 0 -> { continue; }
+                default -> System.out.println("Erro: Opção Inválida.");
             }
         } while (op != 0);
     }
@@ -39,8 +43,14 @@ public class IRelatorio {
 
     private static void emprestimosAtrasados(RelatorioService service){
         System.out.println("\n--- Livro em Atraso ---");
-        for(Emprestimo e : service.emprestimosEmAtraso()){
-            System.out.println("Livro: " + e.getLivro().getTitulo() + " | Cliente: " + e.getCliente().getNome() + " | Vencimento: " + e.getDataPrevistaDevolucao());
+        try {
+            for(Emprestimo e : service.emprestimosEmAtraso()){
+                System.out.println("Livro: " + e.getLivro().getTitulo() + " | Cliente: " + e.getCliente().getNome() + " | Vencimento: " + e.getDataPrevistaDevolucao());
+                System.out.println("---------------------------------------------------");
+            }
+        } catch (EmprestimoNaoEncontradoException e) {
+            System.out.println("NENHUM EMPRÉSTIMO ATRASADO");
+            System.out.println("---------------------------------------------------");
         }
     }
 

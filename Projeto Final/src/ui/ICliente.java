@@ -27,6 +27,8 @@ public class ICliente {
                 case 4 -> buscarPorCpf(sc, service);
                 case 5 -> bloquear(sc, service);
                 case 6 -> ativar(sc, service);
+                case 0 -> { continue; }
+                default -> System.out.println("Erro: Opção Inválida.");
             }
         } while(op != 0);
     }

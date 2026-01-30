@@ -12,11 +12,11 @@ public class LivroUtil {
         String [] p = linha.split(";");
         Livro livro = new Livro(p[0], p[1], p[2], p[3], Integer.parseInt(p[4]));
 
-        if(!Boolean.parseBoolean(p[5])) livro.emprestar();
-        for(int i = 0; i< Integer.parseInt(p[6]); i++){
-            livro.devolver();
+        
+        for(int i = 0; i < Integer.parseInt(p[6]); i++){
             livro.emprestar();
         }
+        if(Boolean.parseBoolean(p[5])) livro.devolver();
 
         return livro;
     }

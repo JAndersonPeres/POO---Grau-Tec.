@@ -43,7 +43,8 @@ public class DataLoader {
             Cliente cliente = clientesPorCpf.get(cpf);
 
             if(livro != null && cliente != null){
-                emprestimos.add(EmprestimoUtil.fromLinha(linha, livro, cliente));
+                Emprestimo e = EmprestimoUtil.fromLinha(linha, livro, cliente);
+                emprestimos.add(e);
             }
         }
         return emprestimos;
