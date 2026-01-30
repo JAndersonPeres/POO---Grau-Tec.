@@ -42,4 +42,10 @@ public class Livro {
     public boolean isDisponivel() { return disponivel; }
     public int getTotalEmprestimos() { return totalEmprestimos; }
 
+    @Override
+    public String toString(){
+        return "Titulo: " + titulo + "\nAutor: " + autor + "\nISBN: " + isbn + "\nEditora: " + editora
+        + "\nAno de Publicação: " + anoPublicacao + "\nDisponibilidade: " + ((isDisponivel()) ? "Disponível" : "Não Disponível");
+    }
+
 }

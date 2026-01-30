@@ -15,7 +15,7 @@ public class LivroService {
 
     public Livro buscarPorIsbn(String isbn){
         for (Livro l : livros){
-            if(l.getIsbn().equals(isbn)) return l;
+            if(l.getIsbn().toLowerCase().equals(isbn.toLowerCase())) return l;
         }
         throw new LivroNaoEncontradoException();
     }
@@ -23,7 +23,7 @@ public class LivroService {
     public List<Livro> buscarPorTitulo(String filtro){
         List<Livro> filtragem = new ArrayList<>();
         for(Livro l : livros){
-            if(l.getTitulo().equals(filtro)) filtragem.add(l);
+            if(l.getTitulo().toLowerCase().contains(filtro.toLowerCase())) filtragem.add(l);
         }
         if(filtragem.isEmpty()) throw new LivroNaoEncontradoException();
         return filtragem;
@@ -32,7 +32,7 @@ public class LivroService {
     public List<Livro> buscarPorAutor(String filtro){
         List<Livro> filtragem = new ArrayList<>();
         for(Livro l : livros){
-            if(l.getAutor().equals(filtro)) filtragem.add(l);
+            if(l.getAutor().toLowerCase().contains(filtro.toLowerCase())) filtragem.add(l);
         }
         if(filtragem.isEmpty()) throw new LivroNaoEncontradoException();
         return filtragem;
@@ -41,7 +41,7 @@ public class LivroService {
     public List<Livro> buscarPorEditora(String filtro){
         List<Livro> filtragem = new ArrayList<>();
         for(Livro l : livros){
-            if(l.getEditora().equals(filtro)) filtragem.add(l);
+            if(l.getEditora().toLowerCase().contains(filtro.toLowerCase())) filtragem.add(l);
         }
         if(filtragem.isEmpty()) throw new LivroNaoEncontradoException();
         return filtragem;

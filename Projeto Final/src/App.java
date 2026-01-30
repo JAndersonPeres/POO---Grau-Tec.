@@ -9,7 +9,9 @@ public class App {
         List<Livro> livros = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
         List<Emprestimo> emprestimos = new ArrayList<>();
-        DataLoader.carregarTudo(livros, clientes, emprestimos);
+        livros = DataLoader.carregarLivros();
+        clientes = DataLoader.carregarClientes();
+        emprestimos = DataLoader.carregarEmprestimos(livros, clientes);
         LivroService livroService = new LivroService(livros);
         ClienteService clienteService = new ClienteService(clientes);
         EmprestimoService emprestimoService = new EmprestimoService(livroService, clienteService, emprestimos);
