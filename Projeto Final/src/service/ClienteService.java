@@ -11,6 +11,8 @@ public class ClienteService {
 
     public ClienteService(List<Cliente> clientes) { this.clientes = clientes; }
 
+    public void cadastrar(Cliente cliente) { this.clientes.add(cliente); }
+
     public Cliente buscarPorCpf(String cpf){
         for(Cliente c : clientes){
             if(c.getCpf().equals(cpf)) return c;

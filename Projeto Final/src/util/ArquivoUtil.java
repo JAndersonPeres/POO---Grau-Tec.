@@ -10,8 +10,13 @@ public class ArquivoUtil {
 
     public static List<String> lerLinhas(String caminho){
         try{
-            if(!Files.exists(Path.of(caminho))) return List.of();
-            return Files.readAllLines(Path.of(caminho));
+            Path path = Paths.get(caminho);
+
+            if(!Files.exists(path)){
+                Files.createDirectories(path.getParent());
+                Files.createFile(path);
+            }
+            return Files.readAllLines(path);
         } catch (IOException e) {
             throw new PersistenciaException("Erro ao ler arquivo: " + caminho);
         }
@@ -19,7 +24,9 @@ public class ArquivoUtil {
 
     public static void escreverLinhas(String caminho, List<String> linhas){
         try{
-            Files.write(Path.of(caminho), linhas);
+            Path path = Paths.get(caminho);
+            if(!Files.exists(path.getParent())){ Files.createDirectories(path.getParent());}
+            Files.write(path, linhas, StandardOpenOption.CREATE , StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e){
             throw new PersistenciaException("Erro ao escrever arquivo: " + caminho);
         }

@@ -49,4 +49,10 @@ public class DataLoader {
         return emprestimos;
     }
 
+    public static void carregarTudo(List<Livro> livros, List<Cliente> clientes, List<Emprestimo> emprestimos){
+        livros = carregarLivros();
+        clientes = carregarClientes();
+        emprestimos = carregarEmprestimos(livros, clientes);
+    }
+
 }

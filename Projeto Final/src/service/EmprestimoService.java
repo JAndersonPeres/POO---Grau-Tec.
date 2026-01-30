@@ -49,7 +49,7 @@ public class EmprestimoService {
         emprestimo.getCliente().registrarDevolucao();
     }
 
-    private double calcularMulta(Emprestimo emprestimo, LocalDate hoje){
+    public double calcularMulta(Emprestimo emprestimo, LocalDate hoje){
         if(!emprestimo.estaAtrasado(hoje)){ return 0.0; }
         long diasAtraso = ChronoUnit.DAYS.between(emprestimo.getDataPrevistaDevolucao(), hoje);
         return diasAtraso * VALOR_DIA;
@@ -85,6 +85,22 @@ public class EmprestimoService {
         }
         if(filtragem.isEmpty()) throw new EmprestimoNaoEncontradoException();
         return filtragem;
+    }
+
+    public List<Emprestimo> buscarPorCliente(String cpf){
+        List<Emprestimo> filtragem = new ArrayList<>();
+        for(Emprestimo e : emprestimos){
+            if(e.getCliente().getCpf().equals(cpf)) filtragem.add(e);
+        }
+        if(filtragem.isEmpty()) throw new EmprestimoNaoAtivoException();
+        return filtragem;
+    }
+
+    public Emprestimo buscarPorID(String id){
+        for(Emprestimo e : emprestimos){
+            if(e.getId().equals(id)) return e;
+        }
+        throw new EmprestimoNaoEncontradoException();
     }
 
 }
