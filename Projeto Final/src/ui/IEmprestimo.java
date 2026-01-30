@@ -5,15 +5,8 @@ import service.EmprestimoService;
 import java.time.LocalDate;
 import java.util.*;
 
-import exceptions.ClienteInativoException;
-import exceptions.EmprestimoFinalizadoException;
-import exceptions.EmprestimoNaoAtivoException;
-import exceptions.EmprestimoNaoEncontradoException;
-import exceptions.LimiteEmprestimosException;
-import exceptions.LivroIndisponivelException;
-import exceptions.LivroNaoEncontradoException;
+import exceptions.*;
 import model.Emprestimo;
-import model.Livro;
 
 public class IEmprestimo {
 
