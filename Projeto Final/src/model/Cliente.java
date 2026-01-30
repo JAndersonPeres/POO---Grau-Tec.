@@ -42,4 +42,10 @@ public class Cliente {
     public boolean isAtivo() { return ativo; }
     public int getEmprestimosAtivos() { return emprestimosAtivos; }
 
+    @Override
+    public String toString(){
+        return "Nome: " + nome + "\nCPF: " + cpf + "\nEndereço: " + endereco + "\nTelefone: " + telefone + "\nEmail: " + email
+        + "\nAtivo: " + ((isAtivo()) ? "Sim" : "Não") + "\nEmpréstimos Ativos: " + emprestimosAtivos;
+    }
+
 }

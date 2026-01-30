@@ -4,6 +4,8 @@ import model.Cliente;
 import service.ClienteService;
 import java.util.*;
 
+import exceptions.ClienteNaoEncontradoException;
+
 public class ICliente {
 
     public static void menu(Scanner sc, ClienteService service){
@@ -20,8 +22,8 @@ public class ICliente {
             op = Integer.parseInt(sc.nextLine());
             switch (op){
                 case 1 -> cadastrar(sc, service);
-                case 2 -> service.listarTodos().forEach(System.out::println);
-                case 3 -> service.listarAtivos().forEach(System.out::println);
+                case 2 -> listarTodos(service);
+                case 3 -> listarAtivos(service);
                 case 4 -> buscarPorCpf(sc, service);
                 case 5 -> bloquear(sc, service);
                 case 6 -> ativar(sc, service);
@@ -46,24 +48,62 @@ public class ICliente {
         System.out.println("Cliente Cadastrado com Sucesso");
     }
 
+    private static void listarTodos(ClienteService service){
+        System.out.println("\n=== Todos os Clientes ===");
+        for(Cliente c : service.listarTodos()){
+            System.out.println(c);
+            System.out.println("------------------------------");
+        }
+    }
+
+    private static void listarAtivos(ClienteService service){
+        System.out.println("\n=== Todos os Livros Disponívels ===");
+        System.out.println("------------------------------");
+        try{
+            for(Cliente c : service.listarAtivos()){
+                System.out.println(c);
+                System.out.println("------------------------------");
+            }
+        } catch (ClienteNaoEncontradoException e){
+            System.out.println("NENHUM CLIENTE ATIVO");
+            System.out.println("------------------------------");
+        }
+    }
+
     private static void buscarPorCpf(Scanner sc, ClienteService service){
         System.out.print("CPF do Cliente: ");
         String cpf = sc.nextLine();
-        System.out.println(service.buscarPorCpf(cpf));
+        System.out.println("\n=== Resultado da Busca ===");
+        System.out.println("------------------------------");
+        try{
+            System.out.println(service.buscarPorCpf(cpf));
+            System.out.println("------------------------------");
+        } catch (ClienteNaoEncontradoException e) {
+            System.out.println("NENHUM CLIENTE ENCONTRADO");
+            System.out.println("------------------------------");
+        }
     }
 
     private static void bloquear(Scanner sc, ClienteService service){
         System.out.print("CPF do Cliente: ");
         String cpf = sc.nextLine();
-        service.bloquearCliente(cpf);
-        System.out.println("Cliente Desativado.");
+        try {
+            service.bloquearCliente(cpf);
+            System.out.println("Cliente Desativado.");
+        } catch (ClienteNaoEncontradoException e) {
+            System.out.println("Erro: Nenhum cliente encontrado com esse CPF.");
+        }
     }
 
     private static void ativar(Scanner sc, ClienteService service){
         System.out.print("CPF do Cliente: ");
         String cpf = sc.nextLine();
-        service.bloquearCliente(cpf);
-        System.out.println("Cliente Ativado.");
+        try {
+            service.ativarCliente(cpf);
+            System.out.println("Cliente Ativado.");
+        } catch (ClienteNaoEncontradoException e) {
+            System.out.println("Erro: Nenhum cliente encontrado com esse CPF.");
+        }
     }
 
 }
