@@ -2,6 +2,8 @@ package model;
 
 import java.time.LocalDate;
 
+import util.DataUtil;
+
 public class Emprestimo {
 
     private String id;
@@ -48,5 +50,12 @@ public class Emprestimo {
     public LocalDate getDataDevolucao() { return dataDevolucao; }
     public double getMulta() { return multa; }
     public StatusEmprestimo getStatus() { return status; }
+
+    @Override
+    public String toString(){
+        return "ID: " + id + "\nLivro: " + livro.getTitulo() + "\nCliente: " + cliente.getNome() + "\nData de Empréstimo: " + 
+        DataUtil.formatar(dataEmprestimo) + "\nData de Prevista: " + DataUtil.formatar(dataPrevistaDevolucao) + "\nStatus: " +
+        status + "\nMulta: R$" + String.format("%.2f", multa);
+    }
 
 }
